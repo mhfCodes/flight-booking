@@ -30,6 +30,9 @@ public class UserModel {
 	@Column(name = "EMAIL")
 	private String email;
 	
+	@Column(name = "USERNAME")
+	private String username;
+	
 	@Column(name = "PASSWORD")
 	private String password;
 	
@@ -39,6 +42,12 @@ public class UserModel {
 
 	public UserModel() {
 		super();
+	}
+	
+	public UserModel(String email, String username, String password, Roles role) {
+		this.email = email;
+		this.password = password;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -65,4 +74,20 @@ public class UserModel {
 		this.password = password;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Roles getRole() {
+		return role;
+	}
+
+	public void setRole(Roles role) {
+		this.role = role;
+	}
+	
 }
