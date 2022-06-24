@@ -1,16 +1,26 @@
-package com.hossein.FlightBooking.modelMapper;
+package com.hossein.FlightBooking.modelMapper.config;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class GenericMapper {
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	
+	public GenericMapper(ModelMapper mapper) {
+		this.modelMapper = mapper;
+		this.setConfigs();
+	}
+	
+	public void setConfigs() {
+		this.modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+	}
 	
 	public <S, T> T map(S source, Class<T> targetClass) {
 		return this.modelMapper.map(source, targetClass);

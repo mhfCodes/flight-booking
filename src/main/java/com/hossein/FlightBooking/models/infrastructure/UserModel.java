@@ -1,4 +1,4 @@
-package com.hossein.FlightBooking.models;
+package com.hossein.FlightBooking.models.infrastructure;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,6 +48,7 @@ public class UserModel {
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.username = username;
 	}
 
 	public Long getId() {

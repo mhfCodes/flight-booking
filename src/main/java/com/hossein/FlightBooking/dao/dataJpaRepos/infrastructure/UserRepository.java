@@ -1,10 +1,10 @@
-package com.hossein.FlightBooking.dao;
+package com.hossein.FlightBooking.dao.dataJpaRepos.infrastructure;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.hossein.FlightBooking.models.UserModel;
+import com.hossein.FlightBooking.models.infrastructure.UserModel;
 
 public interface UserRepository extends JpaRepository<UserModel, Long> {
 	Optional<UserModel> findByUsername(String username);

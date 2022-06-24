@@ -1,4 +1,4 @@
-package com.hossein.FlightBooking.modelMapper;
+package com.hossein.FlightBooking.modelMapper.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -1,11 +1,19 @@
-package com.hossein.FlightBooking.dto;
+package com.hossein.FlightBooking.dto.infrastructure;
 
 public class UserDto {
 	
+	private Long userId;
 	private String userEmail;
 	private String username;
 	private String userPass;
 	private Long roleId;
+
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 	public String getUserEmail() {
 		return userEmail;
 	}
