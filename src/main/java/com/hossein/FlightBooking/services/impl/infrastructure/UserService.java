@@ -5,6 +5,8 @@ import javax.transaction.Transactional;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +45,14 @@ public class UserService implements IUserService {
 			}
 		}
 		return 0;
+	}
+
+	@Override
+	public Long getLoggedInUser() {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserModel loggedInUser = this.userRepo.findByUsername(user.getUsername())
+										.orElseThrow(() -> new ApplicationException("Username Not Found"));
+		return loggedInUser.getId();
 	}
 
 }

@@ -35,9 +35,7 @@ public class FlightBookingApplication {
 			UserModel adminUser = new UserModel("admin@gmail.com", "admin", passwordEncoder.encode("123456"), adminRole);
 			UserModel passengerUser1 = new UserModel("johndoe@gmail.com", "john_doe", passwordEncoder.encode("abcd1234"), passengerRole);
 			UserModel passengerUser2 = new UserModel("janedoe@gmail.com", "jane_doe", passwordEncoder.encode("abcd1234"), passengerRole);
-//			UserModel passengerUser3 = new UserModel("alexmahoon@gmail.com", "abcd1234", passengerRole);
-//			UserModel passengerUser4 = new UserModel("mikeshinoda@gmail.com", "abcd1234", passengerRole);
-//
+			
 			userRepo.saveAll(List.of(adminUser, passengerUser1, passengerUser2));
 			
 			

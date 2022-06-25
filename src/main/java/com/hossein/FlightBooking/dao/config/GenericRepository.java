@@ -1,0 +1,47 @@
+package com.hossein.FlightBooking.dao.config;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.hibernate.transform.Transformers;
+
+public class GenericRepository {
+	
+	@PersistenceContext
+	private EntityManager em;
+
+	public Session getSession() {
+		return this.em.unwrap(Session.class);
+	}
+	
+	public <T> List<T> getAll(String hql, Map<String, Object> params) {
+		return this.getAll(hql, params, null);
+	}
+	
+	public <T> List<T> getAll(String hql, Map<String, Object> params, Class<T> transformerClass) {
+		Session session = this.getSession();
+		Query<T> query;
+		
+		if (transformerClass != null) {
+			query = session.createQuery(hql).setResultTransformer(Transformers.aliasToBean(transformerClass));
+		} else {
+			query = session.createQuery(hql);
+		}
+		
+		Set<String> parameterSet = params.keySet();
+		for (Iterator<String> it = parameterSet.iterator(); it.hasNext();) {
+			String parameter = it.next();
+			query.setParameter(parameter, params.get(parameter));
+		}
+		
+		return query.list();
+	}
+	
+}
