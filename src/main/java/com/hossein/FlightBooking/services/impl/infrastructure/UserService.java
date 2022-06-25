@@ -2,11 +2,14 @@ package com.hossein.FlightBooking.services.impl.infrastructure;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.hossein.FlightBooking.dao.dataJpaRepos.infrastructure.UserRepository;
+import com.hossein.FlightBooking.exceptions.ApplicationException;
 import com.hossein.FlightBooking.models.infrastructure.UserModel;
 import com.hossein.FlightBooking.services.infrastructure.IUserService;
 
@@ -23,8 +26,23 @@ public class UserService implements IUserService {
 	@Transactional
 	public long saveEntity(UserModel user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		UserModel savedEntity = this.userRepo.save(user);
-		return savedEntity.getId();
+		try {
+			return this.userRepo.saveAndFlush(user).getId();
+		} catch (DataIntegrityViolationException exception) {
+			Throwable t = exception.getCause();
+		    while ((t != null) && !(t instanceof ConstraintViolationException)) {
+		        t = t.getCause();
+		    }			
+		    
+		    if (t instanceof ConstraintViolationException) {
+				if (((ConstraintViolationException) t).getConstraintName().equals("uk_r43af9ap4edm43mmtq01oddj6")) {
+					throw new ApplicationException("Username is Taken");
+				} else if (((ConstraintViolationException) t).getConstraintName().equals("uk_6dotkott2kjsp8vw4d0m25fb7")) {
+					throw new ApplicationException("Email is Taken");
+				}
+			}
+		}
+		return 0;
 	}
 
 }

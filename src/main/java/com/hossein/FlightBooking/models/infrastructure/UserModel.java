@@ -27,10 +27,10 @@ public class UserModel {
 			)
 	private Long id;
 	
-	@Column(name = "EMAIL")
+	@Column(name = "EMAIL", unique = true)
 	private String email;
 	
-	@Column(name = "USERNAME")
+	@Column(name = "USERNAME", unique = true)
 	private String username;
 	
 	@Column(name = "PASSWORD")

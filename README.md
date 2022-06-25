@@ -12,5 +12,10 @@
 <p><strong><i>/flightBooking/signup</i></strong> ====> User Sends His Information To This Endpoint And Gets Signed Up. Response Is Newly Saved User's Id</p>
 <p><strong><i>/flightBooking/login</i></strong> ====> User Has To Be Signed Up First. Response Is A JWT Token</p>
 
+<h2><u>Flight Booking v1.2</u></h2>
+
+<p>Made User's Email And Username Unique</p>
+<p>Added A Custom Exception Named ApplicationException</p>
+
 <hr/>
 <p>P.S: This Project Gets Updated Regularly And More Features Will Be Added To It</p>
