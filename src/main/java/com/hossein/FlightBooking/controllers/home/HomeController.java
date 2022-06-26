@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_PASSENGER')")
-	@GetMapping("/user")
+	@GetMapping("/user/home")
 	public String getUserHome() {
 		User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return "Hi " + loggedInUser.getUsername() + " Welcome To Flight Booking App";

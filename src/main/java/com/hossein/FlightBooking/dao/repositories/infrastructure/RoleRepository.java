@@ -1,4 +1,4 @@
-package com.hossein.FlightBooking.dao.dataJpaRepos.infrastructure;
+package com.hossein.FlightBooking.dao.repositories.infrastructure;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

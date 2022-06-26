@@ -1,4 +1,4 @@
-package com.hossein.FlightBooking.dao.impl.userDetails;
+package com.hossein.FlightBooking.dao.repositories.impl.userDetails;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,12 +9,11 @@ import org.springframework.util.StringUtils;
 
 import com.hossein.FlightBooking.controllers.viewModels.userDetails.UserDetailsViewModel;
 import com.hossein.FlightBooking.dao.config.GenericRepository;
-import com.hossein.FlightBooking.dao.custom.userDetails.IUserDetailsCustomRepository;
 import com.hossein.FlightBooking.dto.userDetails.UserDetailsDto;
 import com.hossein.FlightBooking.models.userDetails.UserDetailsModel;
 
 @Repository
-public class UserDetailsRepository extends GenericRepository implements IUserDetailsCustomRepository {
+public class UserDetailsCustomRepoImpl extends GenericRepository implements UserDetailsCustomRepo {
 
 	@Override
 	public List<UserDetailsViewModel> getAll(UserDetailsDto data) {
@@ -25,7 +24,7 @@ public class UserDetailsRepository extends GenericRepository implements IUserDet
 				+ " e.firstName as firstName, e.lastName as lastName,"
 				+ " e.city as city, e.country as country,"
 				+ " e.phone as phone, e.age as age"
-				+ " from").append(UserDetailsModel.class.getName())
+				+ " from ").append(UserDetailsModel.class.getName())
 				.append(" e where 1=1");
 		
 		if (data.getId() != null && data.getId() > -1) {

@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.hossein.FlightBooking.dao.dataJpaRepos.infrastructure.RoleRepository;
-import com.hossein.FlightBooking.dao.dataJpaRepos.infrastructure.UserRepository;
+import com.hossein.FlightBooking.dao.repositories.infrastructure.RoleRepository;
+import com.hossein.FlightBooking.dao.repositories.infrastructure.UserRepository;
 import com.hossein.FlightBooking.models.infrastructure.Roles;
 import com.hossein.FlightBooking.models.infrastructure.UserModel;
 

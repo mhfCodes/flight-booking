@@ -1,6 +1,7 @@
 package com.hossein.FlightBooking.services.impl.userDetails;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -8,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hossein.FlightBooking.controllers.viewModels.userDetails.UserDetailsViewModel;
-import com.hossein.FlightBooking.dao.dataJpaRepos.userDetails.IUserDetailsRepository;
+import com.hossein.FlightBooking.dao.repositories.userDetails.IUserDetailsRepository;
 import com.hossein.FlightBooking.dto.userDetails.UserDetailsDto;
+import com.hossein.FlightBooking.modelMapper.maps.userDetails.VUserDetailsMapper;
 import com.hossein.FlightBooking.models.userDetails.UserDetailsModel;
 import com.hossein.FlightBooking.services.userDetails.IUserDetailsService;
 
@@ -18,10 +20,13 @@ public class UserDetailsService implements IUserDetailsService {
 	
 	@Autowired
 	private IUserDetailsRepository iUserDetailsRepository;
+	
+	@Autowired
+	private VUserDetailsMapper vMapper;
 
 	@Override
 	public List<UserDetailsViewModel> getAll(UserDetailsDto data) {
-		return iUserDetailsRepository.getAll(data);
+		return this.iUserDetailsRepository.getAll(data);
 	}
 
 	@Override
@@ -32,9 +37,9 @@ public class UserDetailsService implements IUserDetailsService {
 
 	@Override
 	public UserDetailsViewModel loadByUserId(Long id) {
-		UserDetailsDto dto = new UserDetailsDto();
-		dto.setUserId(id);
-		return this.iUserDetailsRepository.getAll(dto).get(0);
+		Optional<UserDetailsModel> entity = this.iUserDetailsRepository.findByUserId(id);
+		if (entity.isPresent()) return this.vMapper.map(entity.get());
+		return new UserDetailsViewModel();
 	}
 
 }

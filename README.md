@@ -17,5 +17,16 @@
 <p>Made User's Email And Username Unique</p>
 <p>Added A Custom Exception Named ApplicationException</p>
 
+<h2><u>Flight Booking v1.5</u></h2>
+
+<p>Added User Homepage</p>
+<p>Added User Detail Section</p>
+
+<h4>Reuqests:</h4>
+
+<p><strong><i>/flightBooking/user/home</i></strong> ====> After Logging In User Will See A Welcome Page.</p>
+<p><strong><i>/flightBooking/userDetails</i></strong> ====> User Can See And Fill His Information And Send It To This EndPoint.
+Admins Can See All Users Information By Sending A Request To "/flightBooking/userDetails/list/grid".</p>
+
 <hr/>
 <p>P.S: This Project Gets Updated Regularly And More Features Will Be Added To It</p>

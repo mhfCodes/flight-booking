@@ -32,17 +32,17 @@ public class UserDetailsController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/list/grid")
 	public List<UserDetailsViewModel> getAll(@RequestBody UserDetailsDto dto) {
-		return iUserDetailsService.getAll(dto);
+		return this.iUserDetailsService.getAll(dto);
 	}
 	
-	@PreAuthorize("hasRole('ROLE_PASSENGER')")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_PASSENGER')")
 	@PostMapping("/save")
 	public long save(@RequestBody UserDetailsDto dto) {
 		dto.setUserId(this.userService.getLoggedInUser());
 		return this.iUserDetailsService.saveEntity(this.mapper.map(dto));
 	}
 	
-	@PreAuthorize("hasRole('ROLE_PASSENGER')")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_PASSENGER')")
 	@GetMapping("/load")
 	public UserDetailsViewModel load() {
 		return this.iUserDetailsService.loadByUserId(this.userService.getLoggedInUser());

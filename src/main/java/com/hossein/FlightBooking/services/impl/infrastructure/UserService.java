@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.hossein.FlightBooking.dao.dataJpaRepos.infrastructure.UserRepository;
+import com.hossein.FlightBooking.dao.repositories.infrastructure.UserRepository;
 import com.hossein.FlightBooking.exceptions.ApplicationException;
 import com.hossein.FlightBooking.models.infrastructure.UserModel;
 import com.hossein.FlightBooking.services.infrastructure.IUserService;

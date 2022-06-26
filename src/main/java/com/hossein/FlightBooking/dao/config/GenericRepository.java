@@ -11,7 +11,9 @@ import javax.persistence.PersistenceContext;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.hibernate.transform.Transformers;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class GenericRepository {
 	
 	@PersistenceContext
