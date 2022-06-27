@@ -55,4 +55,10 @@ public class UserService implements IUserService {
 		return loggedInUser.getId();
 	}
 
+	@Override
+	public UserModel loadById(Long id) {
+		return this.userRepo.findById(id)
+				.orElseThrow(() -> new ApplicationException("User Not Found"));
+	}
+
 }

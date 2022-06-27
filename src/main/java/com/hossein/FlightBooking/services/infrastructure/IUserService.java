@@ -7,4 +7,6 @@ public interface IUserService {
 	long saveEntity(UserModel user);
 
 	Long getLoggedInUser();
+	
+	UserModel loadById(Long id);
 }

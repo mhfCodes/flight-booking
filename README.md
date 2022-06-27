@@ -40,6 +40,16 @@
 <p><strong><i>/flightBooking/flights/save</i></strong> ====> Only Admins Can Access This Endpoint. By Sending A Reuqest With A Flight's Information To This URL, Admins Can Add New Flights And Update Available Flights.</p>
 <p><strong><i>/flightBooking/flights/delete/{id}</i></strong> ====> Only Admins Can Access This Endpoint. By Sending A Reuqest With A Flight's Id To This URL, Admins Can Delete A Specific Flight.</p>
 
+<h2><u>Flight Booking v2.5</u></h2>
+
+<p>Added Bookings Section</p>
+
+<h4>Reuqests:</h4>
+
+<p><strong><i>/flightBooking/bookings/list/grid</i></strong> ====> By Sending A Reuqest To This URL, Users Will Get A List Of All Bookings That Belong To Them And Admins Will Get A List Of All Users Bookings. Also Users Can Filter Through Bookings By Sending Filters.</p>
+<p><strong><i>/flightBooking/bookings/load/{id}</i></strong> ====> By Sending A Reuqest With A Bookings's Id To This URL, Users Will Get All Data About That Specific Booking.</p>
+<p><strong><i>/flightBooking/bookings/save</i></strong> ====> By Sending A Reuqest With A Bookings's Information To This URL, Users Can Add New Bookings And Update Available Bookings.</p>
+<p><strong><i>/flightBooking/bookings/delete/{id}</i></strong> ====> By Sending A Reuqest With A Bookings's Id To This URL, Users Can Delete A Specific Booking.</p>
 
 <hr/>
 <p>P.S: This Project Gets Updated Regularly And More Features Will Be Added To It</p>

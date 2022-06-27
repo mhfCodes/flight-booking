@@ -3,6 +3,7 @@ package com.hossein.FlightBooking.modelMapper.config;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.modelmapper.convention.MatchingStrategies;
@@ -20,6 +21,10 @@ public class GenericMapper {
 	
 	public void setConfigs() {
 		this.modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+	}
+	
+	public <S, D> void addConverter(Converter<S, D> converter) {
+		this.modelMapper.addConverter(converter);
 	}
 	
 	public <S, T> T map(S source, Class<T> targetClass) {
