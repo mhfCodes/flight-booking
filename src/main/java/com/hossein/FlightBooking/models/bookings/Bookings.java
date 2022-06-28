@@ -10,12 +10,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 import com.hossein.FlightBooking.models.flights.Flights;
 import com.hossein.FlightBooking.models.infrastructure.UserModel;
 
 @Entity
-@Table(name = "BOOKINGS")
+@Table(
+		name = "BOOKINGS",
+		uniqueConstraints = @UniqueConstraint(columnNames= {"USER_ID", "FLIGHT_ID"})
+		)
 public class Bookings {
 
 	@Id

@@ -51,5 +51,18 @@
 <p><strong><i>/flightBooking/bookings/save</i></strong> ====> By Sending A Reuqest With A Bookings's Information To This URL, Users Can Add New Bookings And Update Available Bookings.</p>
 <p><strong><i>/flightBooking/bookings/delete/{id}</i></strong> ====> By Sending A Reuqest With A Bookings's Id To This URL, Users Can Delete A Specific Booking.</p>
 
+<h2><u>Flight Booking v3.0</u></h2>
+
+<p>Added Companions Section</p>
+
+<h4>Reuqests:</h4>
+
+<p><strong><i>/flightBooking/bookings/companions/list/grid</i></strong> ====> By Sending A Reuqest To This URL, Users Will Get A List Of All Companions Of A Specific Booking That Belongs To Them And Admins Will Get A List Of All Users Companions. Also Users Can Filter Through Companions By Sending Filters.</p>
+<p><strong><i>/flightBooking/bookings/companions/load/{bookingId}/{id}</i></strong> ====> By Sending A Reuqest With A Bookings's Id And A Companion's Id To This URL, Users Will Get All Data About That Specific Companion.</p>
+<p><strong><i>/flightBooking/bookings/companions/save</i></strong> ====> By Sending A Reuqest With A Companion's Information To This URL, Users Can Add New Companions And Update Available Companions.</p>
+<p><strong><i>/flightBooking/bookings/companions/saveAll</i></strong> ====> By Sending A Reuqest With A List Of Companions Informations To This URL, Users Can Add New Companions And Update Available Companions Grouply.</p>
+<p><strong><i>/flightBooking/bookings/companions/delete/{bookingId}/{id}</i></strong> ====> By Sending A Reuqest With A Bookings's Id And A Companion's Id To This URL, Users Can Delete A Specific Companion.</p>
+<p><strong><i>/flightBooking/bookings/companions/deleteAll/{bookingId}</i></strong> ====> By Sending A Reuqest With A Bookings's Id To This URL, Users Can Delete All Companions Associated With That Specific Booking.</p>
+
 <hr/>
 <p>P.S: This Project Gets Updated Regularly And More Features Will Be Added To It</p>

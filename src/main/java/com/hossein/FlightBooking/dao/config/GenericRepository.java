@@ -27,6 +27,10 @@ public class GenericRepository {
 		return this.getAll(hql, params, null);
 	}
 	
+	public <T> T find(String hql, Map<String, Object> params) {
+		return this.find(hql, params, null);
+	}
+	
 	public <T> List<T> getAll(String hql, Map<String, Object> params, Class<T> transformerClass) {
 		Session session = this.getSession();
 		Query<T> query;
@@ -44,6 +48,40 @@ public class GenericRepository {
 		}
 		
 		return query.list();
+	}
+	
+	public <T> T find(String hql, Map<String, Object> params, Class<T> transformerClass) {
+		Session session = this.getSession();
+		Query<T> query;
+		
+		if (transformerClass != null) {
+			query = session.createQuery(hql).setResultTransformer(Transformers.aliasToBean(transformerClass));
+		} else {
+			query = session.createQuery(hql);
+		}
+		
+		Set<String> parameterSet = params.keySet();
+		for (Iterator<String> it = parameterSet.iterator(); it.hasNext();) {
+			String parameter = it.next();
+			query.setParameter(parameter, params.get(parameter));
+		}
+		
+		return query.getSingleResult();
+	}
+	
+	public Long getRowCount(String hql, Map<String, Object> params) {
+		Session session = this.getSession();
+		Query<?> query;
+		
+		query = session.createQuery(hql);
+
+		Set<String> parameterSet = params.keySet();
+		for (Iterator<String> it = parameterSet.iterator(); it.hasNext();) {
+			String parameter = it.next();
+			query.setParameter(parameter, params.get(parameter));
+		}
+		
+		return (Long) query.getSingleResult();
 	}
 	
 }
