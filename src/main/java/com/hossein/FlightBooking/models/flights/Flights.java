@@ -52,6 +52,19 @@ public class Flights {
 		super();
 	}
 
+	public Flights(String originCountry, String originCity, String destinationCountry, String destinationCity,
+			Integer flightNumber, String flightDate, String flightTime, Integer price) {
+		super();
+		this.originCountry = originCountry;
+		this.originCity = originCity;
+		this.destinationCountry = destinationCountry;
+		this.destinationCity = destinationCity;
+		this.flightNumber = flightNumber;
+		this.flightDate = flightDate;
+		this.flightTime = flightTime;
+		this.price = price;
+	}
+
 	public Long getId() {
 		return id;
 	}
