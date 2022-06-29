@@ -64,5 +64,9 @@
 <p><strong><i>/flightBooking/bookings/companions/delete/{bookingId}/{id}</i></strong> ====> By Sending A Reuqest With A Bookings's Id And A Companion's Id To This URL, Users Can Delete A Specific Companion.</p>
 <p><strong><i>/flightBooking/bookings/companions/deleteAll/{bookingId}</i></strong> ====> By Sending A Reuqest With A Bookings's Id To This URL, Users Can Delete All Companions Associated With That Specific Booking.</p>
 
+<h2><u>Flight Booking v3.1</u></h2>
+
+<p>Added Index Page</p>
+
 <hr/>
 <p>P.S: This Project Gets Updated Regularly And More Features Will Be Added To It</p>
